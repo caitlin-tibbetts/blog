@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: $i*8.33%;
+    }
+}

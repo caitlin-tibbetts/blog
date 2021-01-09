@@ -9,6 +9,7 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify-cms",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-typography`,
       options: {

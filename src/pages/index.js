@@ -1,11 +1,12 @@
 import * as React from "react"
 import Layout from "../components/layout"
+import Posts from "../components/posts"
 import "../styles/style.scss"
 
 const IndexPage = () => {
   return (
     <Layout>
-      <p>Some content.</p>
+      <Posts/>
     </Layout>
   )
 }

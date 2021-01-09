@@ -1,9 +1,8 @@
 ---
-date: 2021-01-09T20:13:27.363Z
-title: Second Post
+date: 2021-01-09T18:13:27.363Z
+title: Some Post
 tags:
   - green
-  - blue
   - yellow
 draft: false
 ---

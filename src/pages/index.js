@@ -5,7 +5,7 @@ import "../styles/style.scss"
 const IndexPage = () => {
   return (
     <Layout>
-      <p>Some content</p>
+      <p>Some content.</p>
     </Layout>
   )
 }

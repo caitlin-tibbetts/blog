@@ -14,8 +14,12 @@ const Posts = () => {
                         date(formatString: "DD-MM-YYYY")
                         tags
                       }
+                      fields {
+                        slug
+                      }
                       excerpt
                       timeToRead
+                      fileAbsolutePath
                     }
                   }
                 }
@@ -26,7 +30,7 @@ const Posts = () => {
                         <div>
                             <h1>{node.frontmatter.title}</h1>
                             <p>{node.frontmatter.date}  <div style={{float: "right"}}>{node.timeToRead} minute read</div></p>
-                            <p>{node.excerpt} <Link>Read more.</Link></p>
+                            <p>{node.excerpt} <Link to={node.fields.slug}>Read more.</Link></p>
                         </div>
                     ))}
                 </div>

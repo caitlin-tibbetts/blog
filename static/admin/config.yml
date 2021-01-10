@@ -13,6 +13,7 @@ collections:
     fields:
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: slug, label: Slug, pattern: ['^[a-z\-]+$', "Invalid slug"] }
       - { name: tags, label: Tags, widget: list }
       - { name: draft, label: Draft?, widget: boolean }
       - { name: body, label: Body, widget: markdown }

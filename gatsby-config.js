@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Caitlin's Corner",
+    title: "Caitlin Codes",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -8,8 +8,22 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-netlify-cms",
-    "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 650,
+              showCaptions: true,
+              markdownCaptions: true,
+              linkImagesToOriginal: false
+            },
+          },
+        ],
+      }
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {

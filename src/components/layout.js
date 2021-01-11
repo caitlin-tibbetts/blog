@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -11,7 +11,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/style.scss";
 
-const ListLink = (props) => (
+const InternalListLink = (props) => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link style={{ backgroundImage: `none` }} to={props.to}>
       {props.children}
@@ -19,40 +19,58 @@ const ListLink = (props) => (
   </li>
 );
 
+const ExternalListLink = (props) => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <a style={{ backgroundImage: `none` }} href={props.to}>
+      {props.children}
+    </a>
+  </li>
+);
+
 export default function Layout({ children }) {
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
+    <StaticQuery 
+      query={graphql`{
+        site {
+          siteMetadata {
+            title
+          }
+      }
+    }`}
+      render={data => (
+        <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
       <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline` }}>Caitlin's Corner</h3>
+          <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
         </Link>
         <ul style={{ listStyle: `none`, float: `right` }}>
-          <ListLink to="/">Home</ListLink>
-          <ListLink to="/about/">About</ListLink>
-          <ListLink to="/contact/">Contact</ListLink>
+          <InternalListLink to="/">Home</InternalListLink>
+          <InternalListLink to="/about/">About</InternalListLink>
+          <InternalListLink to="/contact/">Contact</InternalListLink>
         </ul>
       </header>
       {children}
       <footer>
         <hr />
         <ul style={{ listStyle: `none`, textAlign: `center` }}>
-          <ListLink to="https://www.instagram.com/caitlinmtibbetts/">
+          <ExternalListLink to="https://www.instagram.com/caitlinmtibbetts/">
             <FontAwesomeIcon icon={faInstagram} />
-          </ListLink>
-          <ListLink to="https://www.linkedin.com/in/caitlin-tibbetts/">
+          </ExternalListLink>
+          <ExternalListLink to="https://www.linkedin.com/in/caitlin-tibbetts/">
             <FontAwesomeIcon icon={faLinkedin} />
-          </ListLink>
-          <ListLink to="https://dev.to/caitlintibbetts">
+          </ExternalListLink>
+          <ExternalListLink to="https://dev.to/caitlintibbetts">
             <FontAwesomeIcon icon={faDev} />
-          </ListLink>
-          <ListLink to="https://twitter.com/cait_tibbetts">
+          </ExternalListLink>
+          <ExternalListLink to="https://twitter.com/cait_tibbetts">
             <FontAwesomeIcon icon={faTwitter} />
-          </ListLink>
-          <ListLink to="mailto:caitlin.tibbetts@utdallas.edu">
+          </ExternalListLink>
+          <ExternalListLink to="mailto:caitlin.tibbetts@utdallas.edu">
             <FontAwesomeIcon icon={faEnvelope} />
-          </ListLink>
+          </ExternalListLink>
         </ul>
       </footer>
     </div>
+      )}/>
   );
 }

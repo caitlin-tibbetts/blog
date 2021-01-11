@@ -35,7 +35,7 @@ export const query = graphql`
         node {
           frontmatter {
             tags
-            date(formatString: "DD-MM-YYYY")
+            date(formatString: "YYYY-MM-DD")
             draft
             title
           }

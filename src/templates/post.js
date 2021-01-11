@@ -22,7 +22,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date(formatString: "DD-MM-YYYY")
+        date(formatString: "YYYY-MM-DD")
         tags
       }
       timeToRead

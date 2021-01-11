@@ -16,7 +16,7 @@ const Posts = () => {
               node {
                 frontmatter {
                   title
-                  date(formatString: "DD-MM-YYYY")
+                  date(formatString: "YYYY-MM-DD")
                   tags
                 }
                 fields {

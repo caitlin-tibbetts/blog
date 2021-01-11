@@ -13,6 +13,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  let allTags = []
+
   return graphql(`
     {
       allMarkdownRemark {
@@ -20,6 +22,9 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+            }
+            frontmatter {
+                tags
             }
           }
         }
@@ -32,6 +37,16 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve("src/templates/post.js"),
         context: { slug: node.fields.slug },
       });
+      node.frontmatter.tags.forEach((tag) => {
+        if(!allTags.includes(tag)) {
+            allTags.push(tag)
+            createPage({
+                path: "/tags/"+tag+"/",
+                component: path.resolve("src/templates/tag.js"),
+                context: {tag: tag},
+            });
+        }
+      })
     });
   });
 };

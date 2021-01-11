@@ -1,5 +1,6 @@
 import * as React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
+import PostStub from "../components/postStub"
 import "../styles/style.scss"
 
 const Posts = () => {
@@ -19,7 +20,6 @@ const Posts = () => {
                       }
                       excerpt
                       timeToRead
-                      fileAbsolutePath
                     }
                   }
                 }
@@ -27,11 +27,7 @@ const Posts = () => {
             render={data => (
             <div>
                     {data.allMarkdownRemark.edges.map(({node}) => (
-                        <div>
-                            <h1>{node.frontmatter.title}</h1>
-                            <p>{node.frontmatter.date}  <div style={{float: "right"}}>{node.timeToRead} minute read</div></p>
-                            <p>{node.excerpt} <Link to={node.fields.slug}>Read more.</Link></p>
-                        </div>
+                        <PostStub title={node.frontmatter.title} date={node.frontmatter.date} timeToRead={node.timeToRead} tags={node.frontmatter.tags} excerpt={node.excerpt} slug={node.fields.slug}/>
                     ))}
                 </div>
             )}

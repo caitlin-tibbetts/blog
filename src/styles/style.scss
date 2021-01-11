@@ -2,6 +2,36 @@
     box-sizing: border-box;
 }
 
+.button {
+    background-color: #ddd;
+    text-shadow: none;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    background-image: none;
+}
+
+.button:hover {
+    background-color: #000;
+    text-shadow: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    background-image: none;
+}
+
 @for $i from 1 through 12 {
     .col-#{$i} {
         width: $i*8.33%;

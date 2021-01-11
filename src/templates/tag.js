@@ -1,16 +1,13 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import PostStub from "../components/postStub"
 import Layout from "../components/layout";
 
 const Tag = ({ data }) => {
   return (
     <Layout>
         {data.allMarkdownRemark.edges.map(({node}) => (
-            <div>
-                <h1>{node.frontmatter.title}</h1>
-                <p>{node.frontmatter.date}  <div style={{float: "right"}}>{node.timeToRead} minute read</div></p>
-                <p>{node.excerpt} <Link to={node.fields.slug}>Read more.</Link></p>
-            </div>
+            <PostStub title={node.frontmatter.title} date={node.frontmatter.date} timeToRead={node.timeToRead} tags={node.frontmatter.tags} excerpt={node.excerpt} slug={node.fields.slug}/>
         ))}
     </Layout>
   );

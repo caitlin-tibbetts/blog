@@ -3,7 +3,7 @@ date: 2020-12-14T20:13:27.363Z
 title: Creating an Effective Virtual Environment for your Team
 tags:
   - teamwork
-  - remotework
+  - remote-work
 draft: false
 ---
 Anyone who knows me knows that I have been a huge proponent of remote work long before the global COVID-19 pandemic. With all of its tragedy, this pandemic has another side effect of bringing remote work to the forefront, forcing people to innovate on the way that they work to make it comfortable and productive from home in almost every industry. This is the first in a series on doing remote work right in every facet.

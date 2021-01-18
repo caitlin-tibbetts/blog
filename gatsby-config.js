@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Caitlin Codes",
+    description: "My name is Caitlin Tibbetts."
   },
   plugins: [
     "gatsby-plugin-sass",

@@ -1,11 +1,11 @@
 ---
-date: 2021-01-16T20:13:27.363Z
+date: 2021-01-16
 title: Building my New Blog (Part 1)
-tags: 
-	- devlog
-	- technology
-	- softwaredev
-	- webdev
+tags:
+- technology
+- devlog
+- software
+- webdev
 draft: false
 ---
 

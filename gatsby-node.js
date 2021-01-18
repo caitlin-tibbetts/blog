@@ -13,7 +13,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  let allTags = []
+  let allTags = [];
 
   return graphql(`
     {
@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-                tags
+              tags
             }
           }
         }
@@ -37,16 +37,18 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve("src/templates/post.js"),
         context: { slug: node.fields.slug },
       });
-      node.frontmatter.tags.forEach((tag) => {
-        if(!allTags.includes(tag)) {
-            allTags.push(tag)
+      if (node.frontmatter.tags) {
+        node.frontmatter.tags.forEach((tag) => {
+          if (!allTags.includes(tag)) {
+            allTags.push(tag);
             createPage({
-                path: "/tags/"+tag+"/",
-                component: path.resolve("src/templates/tag.js"),
-                context: {tag: tag},
+              path: "/tags/" + tag + "/",
+              component: path.resolve("src/templates/tag.js"),
+              context: { tag: tag },
             });
-        }
-      })
+          }
+        });
+      }
     });
   });
 };

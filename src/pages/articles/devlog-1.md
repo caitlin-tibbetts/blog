@@ -1,13 +1,13 @@
---
-date: 2020-12-16T20:13:27.363Z
-title: Building my New Blog - Part 1
+---
+date: 2021-01-16T20:13:27.363Z
+title: Building my New Blog (Part 1)
 tags: 
 	- devlog
 	- technology
-	- software-development
-	- web-development
+	- softwaredev
+	- webdev
 draft: false
---
+---
 
 I'm creating a new [blog](https://github.com/caitlin-tibbetts/blog)! I'm a software developer by trade, so I think building and deploying my own blog would be a great project. And I'll be writing a DevLog for y'all to keep track of my progress! These are the features my blog will need to have before I deploy it:
 
